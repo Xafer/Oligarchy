@@ -41,6 +41,8 @@ import java.net.URL;
 import java.util.regex.*;
 import java.awt.datatransfer.*;
 
+import haven.oligarchy.CommandUtil;
+
 public class ChatUI extends Widget {
     private static final Resource alarmsfx = Resource.local().loadwait("sfx/chatalarm");
     public static final RichText.Foundry fnd = new RichText.Foundry(new ChatParser(TextAttribute.FONT, Text.dfont.deriveFont((float)Config.fontsizechat)));
@@ -780,10 +782,12 @@ public class ChatUI extends Widget {
                 if (from == null) {
                     MyMessage my = new MyMessage(line, iw());
                     append(my);
+                    CommandUtil.Chatter.recieveChat(my.text().text);
                     save(name, my.text().text, super.getparent(GameUI.class).buddies.getCharName());
                 } else {
                     Message cmsg = new NamedMessage(from, line, fromcolor(from), iw());
                     append(cmsg);
+                    CommandUtil.Chatter.recieveChat(cmsg.text().text);
                     if (urgency > 0)
                         notify(cmsg, urgency);
                     save(name, cmsg.text().text);

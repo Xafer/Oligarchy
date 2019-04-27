@@ -61,6 +61,8 @@ public class OCache implements Iterable<Gob> {
     public boolean isfight = false;
     private final Collection<ChangeCallback> cbs = new WeakList<ChangeCallback>();
 
+    public Set<Long> getKeys() { return objs.keySet(); }
+    
     public interface ChangeCallback {
         public void changed(Gob ob);
         public void removed(Gob ob);

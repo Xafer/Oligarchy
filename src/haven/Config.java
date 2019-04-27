@@ -361,8 +361,8 @@ public class Config {
         put("Scale", new CheckListboxItem("Scale", Resource.BUNDLE_FLOWER));
     }};
 
-    public final static Map<String, Tex> additonalicons = new HashMap<String, Tex>(16) {{
-        put("gfx/terobjs/vehicle/bram", Resource.loadtex("gfx/icons/bram"));
+    public final static Map<String, Tex> additonalicons = new HashMap<String, Tex>(15) {{
+        //put("gfx/terobjs/vehicle/bram", Resource.loadtex("gfx/icons/bram"));
         put("gfx/kritter/toad/toad", Resource.loadtex("gfx/icons/toad"));
         put("gfx/terobjs/vehicle/rowboat", Resource.loadtex("gfx/icons/rowboat"));
         put("gfx/kritter/chicken/chicken", Resource.loadtex("gfx/icons/deadhen"));

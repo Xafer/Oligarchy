@@ -95,6 +95,8 @@ public class Glob {
             notifyObservers(null);
             this.comptex = Text.renderstroked(comp + "", Color.WHITE, Color.BLACK, Text.num12boldFnd).tex();
         }
+        
+        public int[] getAttributeValues() { return new int[]{base,comp}; }
     }
 
     private static Color colstep(Color o, Color t, double a) {

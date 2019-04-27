@@ -38,6 +38,8 @@ import java.awt.image.WritableRaster;
 import java.util.List;
 
 import static haven.Inventory.invsq;
+import haven.oligarchy.OligarchyOverlay;
+import haven.oligarchy.OligarchyThread;
 
 public class GameUI extends ConsoleHost implements Console.Directory {
     public static final Text.Foundry msgfoundry = new Text.Foundry(Text.dfont, Text.cfg.msg);
@@ -130,6 +132,9 @@ public class GameUI extends ConsoleHost implements Console.Directory {
     }
 
     public GameUI(String chrid, long plid, String genus) {
+
+    	OligarchyOverlay.setCurrentUI(this);
+    	
         this.chrid = chrid;
         this.plid = plid;
         this.genus = genus;

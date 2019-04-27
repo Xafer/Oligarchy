@@ -1,7 +1,7 @@
 /*
  *  This file is part of the Haven & Hearth game client.
  *  Copyright (C) 2009 Fredrik Tolf <fredrik@dolda2000.com>, and
- *                     Björn Johannessen <johannessen.bjorn@gmail.com>
+ *                     Bjrn Johannessen <johannessen.bjorn@gmail.com>
  *
  *  Redistribution and/or modification of this file is subject to the
  *  terms of the GNU Lesser General Public License, version 3, as
@@ -25,6 +25,8 @@
  */
 
 package haven;
+
+import haven.oligarchy.CommandUtil;
 
 import java.util.*;
 
@@ -72,6 +74,7 @@ public class Charlist extends Widget {
         }, bg.sz().x / 2, sau.c.y + sau.sz.y + (bg.sz().y * height) + (margin * (height - 1)), 0.5, 0);
         sau.hide(); sad.hide();
         resize(new Coord(bg.sz().x, sad.c.y + sad.sz.y));
+    	CommandUtil.Login.charScreen = this;
     }
 
     protected void added() {

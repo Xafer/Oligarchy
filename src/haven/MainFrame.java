@@ -26,6 +26,8 @@
 
 package haven;
 
+import haven.oligarchy.OligarchyOverlay;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -38,8 +40,10 @@ public class MainFrame extends java.awt.Frame implements Runnable, Console.Direc
     private final ThreadGroup g;
     public final Thread mt;
     DisplayMode fsmode = null, prefs = null;
-    private static final String TITLE = "Haven and Hearth (Amber v" + Config.version + ")";
+    private static final String TITLE = "Haven and Hearth (Amber + oligarchy)";
 
+    private OligarchyOverlay o;
+    
     static {
         try {
             javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
@@ -181,6 +185,7 @@ public class MainFrame extends java.awt.Frame implements Runnable, Console.Direc
 
     public MainFrame(Coord isz) {
         super("Haven and Hearth");
+        
         Coord sz;
         if (isz == null) {
             sz = Utils.getprefc("wndsz", new Coord(800, 600));
@@ -248,6 +253,12 @@ public class MainFrame extends java.awt.Frame implements Runnable, Console.Direc
             throw (new RuntimeException("MainFrame is being run from an invalid context"));
         Thread ui = new HackThread(p, "Haven UI thread");
         ui.start();
+        
+        //Start Oligarchy!!
+        
+        o = new OligarchyOverlay();
+        o.start();
+        
         try {
             try {
                 Session sess = null;

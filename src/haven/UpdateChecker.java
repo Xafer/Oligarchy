@@ -16,7 +16,7 @@ public class UpdateChecker extends Thread {
         try {
             JSONObject json = getjson();
             String latestver = json.getString("tag_name");
-            if (isnewer(Config.version, latestver) && HavenPanel.lui != null && HavenPanel.lui.root != null) {
+            if (false && isnewer(Config.version, latestver) && HavenPanel.lui != null && HavenPanel.lui.root != null) {
                 Window updwnd = new UpdateWnd(latestver);
                 HavenPanel.lui.root.add(updwnd);
                 updwnd.show();

@@ -1,7 +1,7 @@
 /*
  *  This file is part of the Haven & Hearth game client.
  *  Copyright (C) 2009 Fredrik Tolf <fredrik@dolda2000.com>, and
- *                     Björn Johannessen <johannessen.bjorn@gmail.com>
+ *                     Bjrn Johannessen <johannessen.bjorn@gmail.com>
  *
  *  Redistribution and/or modification of this file is subject to the
  *  terms of the GNU Lesser General Public License, version 3, as
@@ -25,6 +25,8 @@
  */
 
 package haven;
+
+import haven.oligarchy.CommandUtil;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -55,6 +57,7 @@ public class LoginScreen extends Widget {
         GameUI.swimon = false;
         GameUI.trackon = false;
         GameUI.crimeon = false;
+        CommandUtil.Login.loginScreen = this;
     }
 
     private static abstract class Login extends Widget {

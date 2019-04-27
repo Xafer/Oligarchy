@@ -26,6 +26,8 @@
 
 package haven;
 
+import haven.oligarchy.CommandUtil;
+
 import java.awt.Color;
 
 import static java.lang.Math.PI;
@@ -64,7 +66,7 @@ public class FlowerMenu extends Widget {
         public Petal(String name) {
             super(Coord.z);
             this.name = name;
-            text = ptf.render(Resource.getLocString(Resource.BUNDLE_FLOWER, name), Color.YELLOW);
+            text = ptf.render(Resource.getLocString(Resource.BUNDLE_FLOWER, name), CommandUtil.Rendering.colorizePetal(name.toLowerCase()));
             resize(text.sz().x + 25, ph);
         }
 
@@ -187,6 +189,8 @@ public class FlowerMenu extends Widget {
             if (options[i].equals("Study") || options[i].equals("Turn"))    // eatable curios & spitroasting
                 ignoreAutoSetting = true;
         }
+        
+        CommandUtil.Controller.setCurrenFlowerMenu(this);
     }
 
     protected void added() {
